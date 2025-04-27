@@ -15,6 +15,7 @@ from emp_agents.agents.history import AbstractConversationProvider, Conversation
 from emp_agents.logger import logger
 from emp_agents.models import (
     AssistantMessage,
+    AssistantMessageOllama,
     GenericTool,
     Message,
     Provider,
@@ -238,7 +239,7 @@ class AgentBase(BaseModel):
                 conversation,
                 model=_model,
                 max_tokens=max_tokens,
-                temperature=temperature,
+                # temperature=temperature,
                 **kwargs,
             )
             return response
@@ -280,6 +281,7 @@ class AgentBase(BaseModel):
                 response_format=response_format,
                 **kwargs,
             )
+            # print(f"basee requesttt : {request}")
             response: ResponseT = await self.provider.completion(request)
             conversation += response.messages
 
@@ -392,7 +394,8 @@ class AgentBase(BaseModel):
                 break
             conversation += [UserMessage(content=question)]
             response = await self.answer(question)
-            conversation += [AssistantMessage(content=response)]
+            # conversation += [AssistantMessage(content=response)]
+            conversation += [AssistantMessageOllama(content=response)]
 
     def _add_tool(self, tool: GenericTool) -> None:
         self._tools.append(tool)

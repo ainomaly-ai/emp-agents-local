@@ -25,6 +25,22 @@ class ToolCall(BaseModel):
     def __repr__(self):
         return f"<ToolCall function={self.function}>"
 
+class ToolCallOllama(BaseModel):
+    class Function(BaseModel):
+        name: str| None
+        # arguments: dict | None = Field(default=None)
+        arguments: Json[Any]
+
+        @field_serializer("arguments")
+        def serialize_dt(self, _info):
+            return json.dumps(self.arguments)
+        # def serialize_dt(self,  value: dict | None, _info):
+        #             return json.dumps(value)
+    function: Function
+
+    def __repr__(self):
+        return f"<ToolCall function={self.function}>"
+
 
 class Message(BaseModel, ABC):
     role: Role
@@ -79,6 +95,12 @@ class AssistantMessage(Message):
     role: Literal[Role.assistant] = Role.assistant
     refusal: str | None = Field(default=None)
     tool_calls: list[ToolCall] | None = Field(default=None)
+
+class AssistantMessageOllama(Message):
+    role: Literal[Role.assistant] = Role.assistant
+    # content: str | None = Field(default=None)
+    # refusal: str | None = Field(default=None)
+    tool_calls: list[ToolCallOllama] | None = Field(default=None)
 
 
 class ToolMessage(Message):

@@ -1,9 +1,11 @@
 from emp_agents.models.shared.example import Example
 from emp_agents.models.shared.message import (
     AssistantMessage,
+    AssistantMessageOllama,
     Message,
     SystemMessage,
     ToolCall,
+    ToolCallOllama,
     ToolMessage,
     UserMessage,
 )
@@ -19,8 +21,10 @@ __all__ = [
     "Role",
     "SystemMessage",
     "ToolCall",
+    "ToolCallOllama",
     "ToolMessage",
     "UserMessage",
     "AssistantMessage",
+    "AssistantMessageOllama",
     "Example",
 ]
