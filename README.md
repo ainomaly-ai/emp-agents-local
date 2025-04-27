@@ -1,6 +1,6 @@
 # emp-agents
 
-A library for building low-code, capable and extensible autonomous agent systems open sourced by [Empyreal](https://empyrealsdk.com/).
+A library for building low-code, capable and extensible autonomous agent systems open sourced by [Empyreal](https://empyrealsdk.com/). This repo additionally has the option for using ollama as a provider.
 
 ---
 
