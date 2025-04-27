@@ -4,11 +4,13 @@ from .middleware import Middleware
 from .provider import Provider, ResponseT
 from .shared import (
     AssistantMessage,
+    AssistantMessageOllama,
     Message,
     Request,
     Role,
     SystemMessage,
     ToolCall,
+    ToolCallOllama,
     ToolMessage,
     UserMessage,
 )
@@ -25,6 +27,8 @@ __all__ = [
     "SystemMessage",
     "UserMessage",
     "AssistantMessage",
+    "AssistantMessageOllama",
     "ToolCall",
+    "ToolCallOllama",
     "ToolMessage",
 ]

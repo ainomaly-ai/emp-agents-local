@@ -2,6 +2,7 @@ from .anthropic import AnthropicModelType, AnthropicProvider
 from .deepseek import DeepSeekModelType, DeepSeekProvider
 from .openai import OpenAIModelType, OpenAIProvider
 from .openrouter import OpenRouterModelType, OpenRouterProvider
+from .ollama import OllamaModelType, OllamaProvider
 
 __all__ = [
     "AnthropicProvider",
@@ -12,4 +13,6 @@ __all__ = [
     "OpenAIModelType",
     "OpenRouterProvider",
     "OpenRouterModelType",
+    "OllamaProvider",
+    "OllamaModelType"
 ]
